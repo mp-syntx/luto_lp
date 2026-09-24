@@ -99,16 +99,26 @@ section{padding-block:88px;position:relative}
 .checks li::before{content:"";width:26px;height:26px;margin-top:1px;border-radius:50%;background:var(--petrol) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5 9-10'/%3E%3C/svg%3E") center/14px no-repeat}
 .checks-dark li::before{background-color:var(--sky);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231C3845' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5 9-10'/%3E%3C/svg%3E")}
 
-/* instituto */
-.inst{background-color:var(--petrol-deep)}
-.inst .wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:64px;align-items:center}
-.inst h2{font-size:clamp(28px,3.4vw,40px);margin:14px 0 20px;color:#fff}
-.inst p.txt{color:var(--on-dark);margin-bottom:28px;max-width:36em}
-.inst .checks{margin:0}
-.inst-logo{display:grid;place-items:center;border:1.5px solid rgba(228,241,245,.25);border-radius:4px 80px 4px 4px;aspect-ratio:5/4;padding:40px}
-.inst-logo img{width:100%;max-width:300px;height:auto}
+/* sobre em fundo escuro, como o banner 3 */
+.sobre h2{color:#fff}
+.sobre .pessoa figcaption{color:var(--sky)}
+.sobre .pessoa figcaption small{color:var(--on-dark-soft)}
+.sobre .checks li{color:var(--on-dark)}
+
+/* instituto — linguagem do site institutodolutoparental.org */
+.inst{--ilp-ink:#1E293B;--ilp-coral:#F4A59B;--ilp-teal:#59AEAA;background:#fff}
+.inst .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:64px;align-items:center}
+.inst-selo img{width:100%;max-width:380px;height:auto;margin-inline:auto}
+.tag-inst{background:rgba(89,174,170,.14);color:#3E8A86}
+.inst h2{font-family:"Poppins",var(--body);font-weight:500;font-size:clamp(28px,3.2vw,38px);letter-spacing:-.01em;margin:14px 0 20px;color:var(--ilp-ink)}
+.inst p.txt{color:#334155;margin-bottom:28px;max-width:36em}
+.inst-lista{list-style:none;margin:0;padding:0;display:grid;gap:18px}
+.inst-lista li{display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:center;color:var(--ilp-ink)}
+.inst-ico{width:44px;height:44px;border-radius:50%;background:rgba(244,165,155,.18);display:grid;place-items:center}
+.inst-ico svg{width:24px;height:24px;fill:none;stroke:#E07F72;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
 
 /* faq */
+.faq{background:var(--mist)}
 .faq .wrap{max-width:820px}
 .faq .head{text-align:center;margin-inline:auto}
 details{border-bottom:1px solid var(--line);padding-block:6px}
@@ -165,7 +175,7 @@ footer .cuidado b{color:#fff}
   .mes{position:static;margin-top:36px;padding-inline:16px}
   .sobre .wrap,.inst .wrap,.final .wrap{grid-template-columns:1fr;gap:40px}
   .cards{grid-template-columns:1fr}
-  .inst-logo{aspect-ratio:auto;padding:36px}
+  .inst-selo img{max-width:240px}
 }
 @media (max-width:520px){
   body{font-size:16px}
