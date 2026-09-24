@@ -9,10 +9,12 @@
  */
 var AC_CONFIG = {
   endpoint: 'https://bastasentir.activehosted.com/proc.php',
-  u: '',   // ex.: '10'
-  f: '',   // ex.: '10'
-  or: '',  // ex.: 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
-  experienciaField: '' // ex.: 'field[52]' (deixe vazio para não enviar)
+  // formulário #10 "LP Masterclass Luto Parental"
+  u: '10',
+  f: '10',
+  or: '40ea0646-19e8-40b8-99c4-0c039d38c834',
+  // campo personalizado qual_a_sua_experincia_em_relao_ao_luto_parental
+  experienciaField: 'field[54]'
 };
 
 (function () {
