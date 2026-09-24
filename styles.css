@@ -6,6 +6,7 @@
   --ink:#1C3845; --ink-soft:#4E6975; --line:#D6E8EE; --paper:#FFFFFF;
   --on-dark:#E4F1F5; --on-dark-soft:#B9D3DC;
   --err:#B3261E;
+  --grain-opacity:.2; /* intensidade da textura (0 a 1) */
   --display:"Comfortaa", "Varela Round", system-ui, sans-serif;
   --body:"DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
 }
@@ -24,7 +25,7 @@ section{padding-block:88px;position:relative}
 
 /* grão da campanha sobre fundos escuros */
 .grain{background-color:var(--petrol);color:var(--on-dark);isolation:isolate}
-.grain::before{content:"";position:absolute;inset:0;background:url("assets/img/grao.png") repeat;background-size:300px;opacity:.55;pointer-events:none;z-index:-1}
+.grain::before{content:"";position:absolute;inset:0;background:url("assets/img/grao.png") repeat;background-size:300px;opacity:var(--grain-opacity);pointer-events:none;z-index:-1}
 
 /* botões */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--petrol);color:#fff;text-decoration:none;font-family:var(--body);font-weight:700;font-size:17px;line-height:1.2;padding:16px 30px;border-radius:999px;border:0;cursor:pointer;transition:background .2s,transform .2s}
