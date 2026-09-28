@@ -59,12 +59,12 @@ section{padding-block:88px;position:relative}
 /* hero */
 .hero{padding-block:96px 120px;overflow:hidden;min-height:min(92vh,820px);display:flex;align-items:center}
 .hero .wrap{width:100%}
-.hero-content{max-width:560px;position:relative}
+.hero-content{max-width:620px;position:relative}
 .hero-media{position:absolute;top:0;right:0;bottom:0;width:58%;z-index:-1}
 .hero-media img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;
   -webkit-mask-image:linear-gradient(to right,transparent 0%,rgba(0,0,0,.55) 22%,#000 45%),linear-gradient(to top,transparent 0%,#000 30%);
   -webkit-mask-composite:source-in;mask-image:linear-gradient(to right,transparent 0%,rgba(0,0,0,.55) 22%,#000 45%),linear-gradient(to top,transparent 0%,#000 30%);mask-composite:intersect}
-.hero h1{font-size:clamp(38px,5vw,62px);color:#fff;margin-bottom:24px;font-weight:700;letter-spacing:-.01em}
+.hero h1{font-size:clamp(36px,4.4vw,56px);color:#fff;margin-bottom:24px;font-weight:700;letter-spacing:-.01em}
 .hero .sub{font-size:19px;color:var(--on-dark);max-width:32em;margin-bottom:28px}
 .hero .sub b{color:#fff}
 .hero .apoio{margin-top:22px;font-family:var(--display);font-size:17px;color:var(--sky)}
@@ -87,8 +87,12 @@ section{padding-block:88px;position:relative}
 .nota b{color:var(--ink)}
 
 /* sobre + palestrantes */
-.sobre .wrap{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.sobre .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
 .duo{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.trio{grid-template-columns:repeat(3,1fr);gap:16px}
+.trio .moldura{border-radius:4px 48px 4px 4px}
+.trio .pessoa figcaption{font-size:14px}
+.trio .pessoa figcaption small{font-size:13px;line-height:1.35;margin-top:4px}
 .pessoa{margin:0}
 .moldura{background:var(--sky);border-radius:4px 64px 4px 4px;aspect-ratio:1/1;overflow:hidden;display:flex;align-items:flex-end;justify-content:center}
 .moldura img{width:100%;height:100%;object-fit:cover;object-position:50% 10%}
@@ -193,6 +197,10 @@ footer .cuidado b{color:#fff}
   form{padding:24px 20px}
   .duo{gap:12px}
   .pessoa figcaption{font-size:13px}
+  .trio{gap:10px}
+  .trio .moldura{border-radius:4px 32px 4px 4px}
+  .trio .pessoa figcaption{font-size:12px;letter-spacing:.03em;margin-top:10px}
+  .trio .pessoa figcaption small{font-size:12px}
 }
 @media (max-width:370px){
   .top .logo-eva{height:28px}
