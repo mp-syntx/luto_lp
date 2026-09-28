@@ -122,6 +122,27 @@ section{padding-block:88px;position:relative}
 .inst-ico{width:44px;height:44px;border-radius:50%;background:rgba(244,165,155,.18);display:grid;place-items:center}
 .inst-ico svg{width:24px;height:24px;fill:none;stroke:#E07F72;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
 
+/* eva maternidade — jornada mãe de anjo */
+.eva{background-color:var(--petrol)}
+.eva .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:64px;align-items:center}
+.eva h2{font-size:clamp(28px,3.4vw,40px);margin:14px 0 18px;color:#fff}
+.eva-intro{color:var(--on-dark);max-width:34em;margin-bottom:20px}
+.jornadas{list-style:none;margin:0 0 32px;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.jornadas li{font-size:14px;font-weight:500;color:var(--on-dark);border:1px solid rgba(228,241,245,.35);border-radius:999px;padding:6px 14px}
+.jornadas li.ativa{background:var(--sky);border-color:var(--sky);color:var(--night);font-weight:700}
+.eva-trilha{border-left:3px solid var(--sky);padding-left:22px;margin-bottom:32px}
+.eva-trilha h3{font-size:22px;color:#fff;margin-bottom:8px}
+.eva-trilha > p{color:var(--on-dark-soft);font-size:16px;margin-bottom:18px}
+.eva-lista{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.eva-lista li{display:grid;grid-template-columns:40px 1fr;gap:14px;align-items:center;color:#fff}
+.eva-ico{width:40px;height:40px;border-radius:50%;background:rgba(126,197,216,.18);display:grid;place-items:center}
+.eva-ico svg{width:22px;height:22px;fill:none;stroke:var(--sky);stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.eva-ico svg .fill{fill:var(--sky);stroke:none}
+.btn-outline{background:transparent;color:#fff;border:1.5px solid rgba(228,241,245,.85)}
+.btn-outline:hover{background:rgba(255,255,255,.1)}
+.eva-app{display:flex;justify-content:center}
+.eva-app img{width:100%;max-width:340px;height:auto;filter:drop-shadow(0 30px 50px rgba(0,0,0,.35))}
+
 /* faq */
 .faq{background:var(--mist)}
 .faq .wrap{max-width:820px}
@@ -178,7 +199,8 @@ footer .cuidado b{color:#fff}
   .hero-content{margin-top:-96px}
   .hero{padding-bottom:48px}
   .mes{position:static;margin-top:36px;padding-inline:16px}
-  .sobre .wrap,.inst .wrap,.final .wrap{grid-template-columns:1fr;gap:40px}
+  .sobre .wrap,.inst .wrap,.final .wrap,.eva .wrap{grid-template-columns:1fr;gap:40px}
+  .eva-app img{max-width:260px}
   .cards{grid-template-columns:1fr}
   .inst-selo img{max-width:240px}
 }
