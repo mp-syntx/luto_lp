@@ -20,12 +20,9 @@ var AC_CONFIG = {
   empresaField: 'field[49]',
   // sua_empresas_oferece_apoio_na_maternidade (opcional)
   apoioField: 'field[55]',
-  // trabalho_na_rea_de_rh_ou_sou_uma_liderana — obrigatório na AC, que só tem a
-  // opção "sim"; quando a caixa não é marcada, enviamos "Não" para o envio passar
-  // sem marcar a pessoa como RH
+  // trabalho_na_rea_de_rh_ou_sou_uma_liderana (opcional; só enviado se marcado)
   rhField: 'field[56]',
-  rhSim: 'Trabalho na área de RH ou sou uma liderança',
-  rhNao: 'Não'
+  rhSim: 'Trabalho na área de RH ou sou uma liderança'
 };
 
 (function () {
@@ -152,7 +149,7 @@ var AC_CONFIG = {
     params.push([AC_CONFIG.empresaField, fields.empresa.value.trim()]);
     var apoio = form.querySelector('input[name="apoio"]:checked');
     if (apoio) params.push([AC_CONFIG.apoioField, apoio.value]);
-    params.push([AC_CONFIG.rhField, fields.rh.checked ? AC_CONFIG.rhSim : AC_CONFIG.rhNao]);
+    if (fields.rh.checked) params.push([AC_CONFIG.rhField, AC_CONFIG.rhSim]);
     var qs = params.map(function (p) {
       return encodeURIComponent(p[0]) + '=' + encodeURIComponent(p[1]);
     }).join('&');
