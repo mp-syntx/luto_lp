@@ -217,6 +217,17 @@
             <option>Trabalho com o tema</option>
           </select>
         </label>
+        <label for="f-empresa"><span>Onde você trabalha?</span>
+          <input id="f-empresa" name="empresa" type="text" autocomplete="organization" placeholder="Nome da empresa" required>
+          <span class="hint">Se não estiver trabalhando no momento, é só escrever “não estou trabalhando”.</span>
+        </label>
+        <fieldset class="radios">
+          <legend>Sua empresa oferece apoio na maternidade? <span class="opt">(opcional)</span></legend>
+          <label class="radio"><input type="radio" name="apoio" value="Sim"> Sim</label>
+          <label class="radio"><input type="radio" name="apoio" value="Não"> Não</label>
+          <label class="radio"><input type="radio" name="apoio" value="Não sei"> Não sei</label>
+        </fieldset>
+        <label class="check" for="f-rh"><input id="f-rh" name="rh" type="checkbox"> Trabalho na área de RH ou sou uma liderança</label>
         <p class="form-err" id="f-err" role="alert" hidden></p>
         <button class="btn btn-full" type="submit" id="f-submit">Quero me inscrever</button>
         <p class="consent">Ao se inscrever, você concorda em receber o link e os lembretes do encontro por e-mail e WhatsApp.</p>

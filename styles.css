@@ -173,6 +173,11 @@ input[aria-invalid="true"]{border-color:var(--err)}
 .field-err{font-size:13px;font-weight:500;color:var(--err)}
 .form-err{font-size:14px;color:var(--err);background:#FCEDEC;border-radius:10px;padding:10px 14px}
 .consent{font-size:13px;color:var(--ink-soft);text-align:center}
+.hint{font-size:13px;font-weight:400;color:var(--ink-soft)}
+.radios{border:0;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:8px 20px}
+.radios legend{width:100%;padding:0;margin-bottom:8px;font-size:15px;font-weight:700;color:var(--ink)}
+label.radio,label.check{display:flex;align-items:center;gap:10px;font-weight:400;cursor:pointer}
+label.radio input,label.check input{width:20px;height:20px;padding:0;margin:0;flex:none;accent-color:var(--turq)}
 .form-ok{text-align:center;padding:24px 8px;outline:none}
 .form-ok h3{font-size:26px;margin:16px 0 10px;color:var(--ink)}
 .form-ok p{color:var(--ink-soft)}

@@ -12,9 +12,20 @@ var AC_CONFIG = {
   // formulário #10 "LP Masterclass Luto Parental"
   u: '10',
   f: '10',
-  or: '4aa5ce2f-38fb-408c-ad4a-600cb8dd6a34',
+  // `or` muda quando o formulário é salvo de novo na AC (atualizado em 13/10)
+  or: 'b821dc79-e04a-44a2-9418-f567beafea6b',
   // campo personalizado qual_a_sua_experincia_em_relao_ao_luto_parental
-  experienciaField: 'field[54]'
+  experienciaField: 'field[54]',
+  // nome_da_empresa (obrigatório no formulário #10)
+  empresaField: 'field[49]',
+  // sua_empresas_oferece_apoio_na_maternidade (opcional)
+  apoioField: 'field[55]',
+  // trabalho_na_rea_de_rh_ou_sou_uma_liderana — obrigatório na AC, que só tem a
+  // opção "sim"; quando a caixa não é marcada, enviamos "Não" para o envio passar
+  // sem marcar a pessoa como RH
+  rhField: 'field[56]',
+  rhSim: 'Trabalho na área de RH ou sou uma liderança',
+  rhNao: 'Não'
 };
 
 (function () {
@@ -29,7 +40,9 @@ var AC_CONFIG = {
     nome: document.getElementById('f-nome'),
     email: document.getElementById('f-email'),
     whats: document.getElementById('f-whats'),
-    exp: document.getElementById('f-exp')
+    exp: document.getElementById('f-exp'),
+    empresa: document.getElementById('f-empresa'),
+    rh: document.getElementById('f-rh')
   };
   var pending = false;
   var timer = null;
@@ -72,7 +85,8 @@ var AC_CONFIG = {
     var checks = [
       [fields.nome, nome.length < 2 ? 'Conte pra gente o seu nome.' : ''],
       [fields.email, !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email) ? 'Confira o seu e-mail.' : ''],
-      [fields.whats, (digits.length < 10 || digits.length > 11) ? 'Informe o WhatsApp com DDD.' : '']
+      [fields.whats, (digits.length < 10 || digits.length > 11) ? 'Informe o WhatsApp com DDD.' : ''],
+      [fields.empresa, fields.empresa.value.trim().length < 2 ? 'Conte pra gente onde você trabalha.' : '']
     ];
     checks.forEach(function (c) {
       setFieldError(c[0], c[1]);
@@ -82,7 +96,7 @@ var AC_CONFIG = {
     return !first;
   }
 
-  [fields.nome, fields.email, fields.whats].forEach(function (input) {
+  [fields.nome, fields.email, fields.whats, fields.empresa].forEach(function (input) {
     input.addEventListener('blur', function () {
       if (input.getAttribute('aria-invalid') === 'true') validate();
     });
@@ -135,6 +149,10 @@ var AC_CONFIG = {
     if (AC_CONFIG.experienciaField && fields.exp.value) {
       params.push([AC_CONFIG.experienciaField, fields.exp.value]);
     }
+    params.push([AC_CONFIG.empresaField, fields.empresa.value.trim()]);
+    var apoio = form.querySelector('input[name="apoio"]:checked');
+    if (apoio) params.push([AC_CONFIG.apoioField, apoio.value]);
+    params.push([AC_CONFIG.rhField, fields.rh.checked ? AC_CONFIG.rhSim : AC_CONFIG.rhNao]);
     var qs = params.map(function (p) {
       return encodeURIComponent(p[0]) + '=' + encodeURIComponent(p[1]);
     }).join('&');
