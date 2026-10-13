@@ -22,8 +22,32 @@ var AC_CONFIG = {
   apoioField: 'field[55]',
   // trabalho_na_rea_de_rh_ou_sou_uma_liderana (opcional; só enviado se marcado)
   rhField: 'field[56]',
-  rhSim: 'Trabalho na área de RH ou sou uma liderança'
+  rhSim: 'Trabalho na área de RH ou sou uma liderança',
+  // UTMs da URL, gravadas como "last click" (só enviadas quando presentes)
+  utmFields: {
+    utm_source: 'field[28]',
+    utm_medium: 'field[26]',
+    utm_campaign: 'field[27]',
+    utm_content: 'field[57]'
+  }
 };
+
+// lê as UTMs da URL e guarda na sessão, para sobreviver a recarregamentos
+var UTMS = (function () {
+  var KEY = 'lp_utms';
+  var utms = {};
+  try { utms = JSON.parse(sessionStorage.getItem(KEY)) || {}; } catch (e) { utms = {}; }
+  var qs = new URLSearchParams(window.location.search);
+  var fromUrl = {};
+  Object.keys(AC_CONFIG.utmFields).forEach(function (k) {
+    var v = (qs.get(k) || '').trim();
+    if (v) fromUrl[k] = v.slice(0, 200);
+  });
+  // um novo link com UTM substitui o conjunto anterior por inteiro
+  if (Object.keys(fromUrl).length) utms = fromUrl;
+  try { sessionStorage.setItem(KEY, JSON.stringify(utms)); } catch (e) { /* sem storage */ }
+  return utms;
+})();
 
 (function () {
   var form = document.getElementById('form-inscricao');
@@ -150,6 +174,9 @@ var AC_CONFIG = {
     var apoio = form.querySelector('input[name="apoio"]:checked');
     if (apoio) params.push([AC_CONFIG.apoioField, apoio.value]);
     if (fields.rh.checked) params.push([AC_CONFIG.rhField, AC_CONFIG.rhSim]);
+    Object.keys(UTMS).forEach(function (k) {
+      if (AC_CONFIG.utmFields[k]) params.push([AC_CONFIG.utmFields[k], UTMS[k]]);
+    });
     var qs = params.map(function (p) {
       return encodeURIComponent(p[0]) + '=' + encodeURIComponent(p[1]);
     }).join('&');
